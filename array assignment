@@ -1,0 +1,27 @@
+def divide_array(arr):
+  """
+  Divides each number in the array by the next number, handling division by zero.
+
+  Args:
+      arr: A list of numbers.
+
+  Returns:
+      A list of results of the division, or None if there is a division by zero.
+  """
+  results = []
+  for i in range(len(arr) - 1):
+    try:
+      results.append(arr[i] / arr[i + 1])
+    except ZeroDivisionError:
+      return None
+  results.append(arr[-1] / arr[0])  # Handle last element division
+  return results
+
+# Example usage
+arr = [9, 33, 0, 7, 2, 82, 77]
+result = divide_array(arr)
+
+if result is None:
+  print("Division by zero encountered.")
+else:
+  print(result)
