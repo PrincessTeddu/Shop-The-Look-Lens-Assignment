@@ -1,0 +1,41 @@
+-- Inserting sample data into Hotel table
+INSERT INTO
+  Hotel (HotelID, HotelName)
+VALUES
+  (1, 'Hotel A'),
+  (2, 'Hotel B'),
+  (3, 'Hotel C');
+
+-- Inserting sample data into Menu table
+INSERT INTO
+  Menu (MenuID, HotelID, MenuName)
+VALUES
+  (1, 1, 'Breakfast Menu'),
+  (2, 1, 'Lunch Menu'),
+  (3, 2, 'Dinner Menu');
+
+-- Inserting sample data into FoodItem table
+INSERT INTO
+  FoodItem (FoodItemID, FoodItemName)
+VALUES
+  (1, 'Eggs Benedict'),
+  (2, 'Pancakes'),
+  (3, 'Burger'),
+  (4, 'Pizza'),
+  (5, 'Salad');
+
+-- Inserting sample data into Junction table Menu_FoodItem
+INSERT INTO
+  Menu_FoodItem (MenuID, FoodItemID)
+VALUES
+  (1, 1),
+  -- Eggs Benedict in Breakfast Menu
+  (1, 2),
+  -- Pancakes in Breakfast Menu
+  (2, 3),
+  -- Burger in Lunch Menu
+  (3, 4),
+  -- Pizza in Dinner Menu
+  (3, 5);
+
+-- Salad in Dinner Menu
