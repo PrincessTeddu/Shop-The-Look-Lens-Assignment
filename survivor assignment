@@ -1,0 +1,28 @@
+function findSurvivor(numPeople) {
+  // Initialize an array to keep track of "gun possession" (initially everyone has false)
+  const hasGun = new Array(numPeople).fill(false);
+
+  // Person 1 starts with the gun
+  hasGun[0] = true;
+
+  // Loop through rounds, simulating passing the gun
+  for (let round = 1; round < numPeople; round++) {
+    const currentPerson = round % numPeople;  // Wrap around for last person
+
+    // Pass the gun to the next person (excluding multiples of current person)
+    hasGun[currentPerson] = !hasGun[currentPerson];
+  }
+
+  // Find the person who still has the gun
+  for (let i = 0; i < numPeople; i++) {
+    if (hasGun[i]) {
+      return i + 1; // Adjust for 0-based indexing to show person number
+    }
+  }
+}
+
+// Example usage
+const numPeople = 100;
+const survivor = findSurvivor(numPeople);
+
+console.log(`The man with number ${survivor} on his T-shirt will be left with the gun.`);
